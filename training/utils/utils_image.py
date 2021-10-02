@@ -33,7 +33,7 @@ def get_timestamp():
     return datetime.now().strftime('%y%m%d-%H%M%S')
 
 
-def imshow(x, title=None, cbar=False, figsize=None):
+def imshow(x, title=None, cbar=True, figsize=None):
     plt.figure(figsize=figsize)
     plt.imshow(np.squeeze(x), interpolation='nearest', cmap='gray')
     if title:

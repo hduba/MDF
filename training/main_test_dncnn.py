@@ -1,5 +1,6 @@
 import os.path
 import logging
+import cv2
 
 import numpy as np
 from datetime import datetime
@@ -59,16 +60,15 @@ by Kai Zhang (12/Dec./2019)
 # --------------------------------------------
 """
 
-
-def main():
-
+# noise_percent =
+def main(noise_percent_img = 9.75, noise_percent_prior = 9.75):
     # ----------------------------------------
     # Preparation
     # ----------------------------------------
-
-    noise_level_img = 0             # noise level for noisy image
-    noise_percent = round(noise_level_img/255. * 100)
-    model_name = 'dna'
+    noise_level_img = round((noise_percent_img/100.)*255) # noise level for noisy image
+    #noise_level_img = noise_level
+    #noise_percent = round(noise_level_img/255. * 100)
+    model_name = f'dna_{noise_percent_prior}%Noise'
     #model_name = '275000_G'
     #model_name = 'dncnn_25'          # 'dncnn_15' | 'dncnn_25' | 'dncnn_50' | 'dncnn_gray_blind' | 'dncnn_color_blind' | 'dncnn3'
     testset_name = 'dnatrain_gt'           # test set, 'bsd68' | 'set12'
@@ -156,7 +156,7 @@ def main():
             img_L += np.random.normal(0, noise_level_img/255., img_L.shape)
 
         #util.imshow(util.single2uint(img_L), title='Noisy image with noise level {}'.format(noise_level_img)) if show_img else None
-        util.imshow(img_L, title='Noisy image with {}% noise'.format(noise_percent)) if show_img else None
+        util.imshow(img_L, title='Noisy image with {}% noise'.format(noise_percent_img)) if show_img else None
 
         img_L = util.single2tensor4(img_L)
         img_L = img_L.to(device)

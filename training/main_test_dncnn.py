@@ -151,6 +151,8 @@ def main(noise_percent_img = 9.75, noise_percent_prior = 9.75):
         img_L = util.imread_uint(img, n_channels=n_channels)
         img_L = util.uint2single(img_L)
 
+        util.imshow(img_L, title='Ground Truth image') if show_img else None
+
         if need_degradation:  # degradation process
             np.random.seed(seed=0)  # for reproducibility
             img_L += np.random.normal(0, noise_level_img/255., img_L.shape)
@@ -190,7 +192,8 @@ def main(noise_percent_img = 9.75, noise_percent_prior = 9.75):
             test_results['psnr'].append(psnr)
             test_results['ssim'].append(ssim)
             logger.info('{:s} - PSNR: {:.2f} dB; SSIM: {:.4f}.'.format(img_name+ext, psnr, ssim))
-            util.imshow(np.concatenate([util.uint2single(img_E), util.uint2single(img_H)], axis=1), title='Recovered / Ground-truth') if show_img else None
+            util.imshow(util.uint2single(img_E), title=f'Recovered Image; Prior: {model_name}')if show_img else None
+            #util.imshow(np.concatenate([util.uint2single(img_E), util.uint2single(img_H)], axis=1), title='Recovered / Ground-truth') if show_img else None
 
         # ------------------------------------
         # save results

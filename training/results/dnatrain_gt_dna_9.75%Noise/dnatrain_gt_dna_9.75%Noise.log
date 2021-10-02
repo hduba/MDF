@@ -48,3 +48,33 @@
 21-10-02 13:43:20.665 : testsets/dnatrain_gt
 21-10-02 13:43:26.170 : dnatrain.png - PSNR: 33.75 dB; SSIM: 0.7423.
 21-10-02 13:43:29.220 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_9.75%Noise - PSNR: 33.75 dB; SSIM: 0.7423
+21-10-02 14:04:01.266 : Model path: model_zoo/dna_9.75%Noise.pth
+21-10-02 14:04:01.267 : Params number: 555137
+21-10-02 14:04:01.267 : model_name:dna_9.75%Noise, image sigma:25
+21-10-02 14:04:01.268 : testsets/dnatrain_gt
+21-10-02 14:05:19.048 : dnatrain.png - PSNR: 33.75 dB; SSIM: 0.7423.
+21-10-02 14:05:28.152 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_9.75%Noise - PSNR: 33.75 dB; SSIM: 0.7423
+21-10-02 14:09:03.766 : Model path: model_zoo/dna_9.75%Noise.pth
+21-10-02 14:09:03.767 : Params number: 555137
+21-10-02 14:09:03.767 : model_name:dna_9.75%Noise, image sigma:25
+21-10-02 14:09:03.767 : testsets/dnatrain_gt
+21-10-02 14:09:20.262 : dnatrain.png - PSNR: 33.75 dB; SSIM: 0.7423.
+21-10-02 14:09:23.251 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_9.75%Noise - PSNR: 33.75 dB; SSIM: 0.7423
+21-10-02 14:11:00.260 : Model path: model_zoo/dna_9.75%Noise.pth
+21-10-02 14:11:00.261 : Params number: 555137
+21-10-02 14:11:00.261 : model_name:dna_9.75%Noise, image sigma:25
+21-10-02 14:11:00.261 : testsets/dnatrain_gt
+21-10-02 14:11:04.810 : dnatrain.png - PSNR: 33.75 dB; SSIM: 0.7423.
+21-10-02 14:11:13.483 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_9.75%Noise - PSNR: 33.75 dB; SSIM: 0.7423
+21-10-02 14:11:25.638 : Model path: model_zoo/dna_9.75%Noise.pth
+21-10-02 14:11:25.639 : Params number: 555137
+21-10-02 14:11:25.639 : model_name:dna_9.75%Noise, image sigma:25
+21-10-02 14:11:25.639 : testsets/dnatrain_gt
+21-10-02 14:11:30.098 : dnatrain.png - PSNR: 33.75 dB; SSIM: 0.7423.
+21-10-02 14:11:52.033 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_9.75%Noise - PSNR: 33.75 dB; SSIM: 0.7423
+21-10-02 14:12:47.949 : Model path: model_zoo/dna_9.75%Noise.pth
+21-10-02 14:12:47.949 : Params number: 555137
+21-10-02 14:12:47.949 : model_name:dna_9.75%Noise, image sigma:25
+21-10-02 14:12:47.949 : testsets/dnatrain_gt
+21-10-02 14:12:53.247 : dnatrain.png - PSNR: 33.75 dB; SSIM: 0.7423.
+21-10-02 14:12:54.702 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_9.75%Noise - PSNR: 33.75 dB; SSIM: 0.7423

@@ -66,13 +66,15 @@ def main():
     # Preparation
     # ----------------------------------------
 
-    noise_level_img = 25             # noise level for noisy image
-    model_name = '275000_G'
+    noise_level_img = 0             # noise level for noisy image
+    noise_percent = round(noise_level_img/255. * 100)
+    model_name = 'dna'
+    #model_name = '275000_G'
     #model_name = 'dncnn_25'          # 'dncnn_15' | 'dncnn_25' | 'dncnn_50' | 'dncnn_gray_blind' | 'dncnn_color_blind' | 'dncnn3'
-    testset_name = 'bsd68'           # test set, 'bsd68' | 'set12'
+    testset_name = 'dnatrain_gt'           # test set, 'bsd68' | 'set12'
     need_degradation = True          # default: True
-    x8 = False                       # default: False, x8 to boost performance
-    show_img = False                 # default: False
+    x8 = False                       #default: False, x8 to boost performance
+    show_img = True                 # default: False
 
 
 
@@ -117,7 +119,9 @@ def main():
     # ----------------------------------------
 
     from models.network_dncnn import DnCNN as net
-    model = net(in_nc=n_channels, out_nc=n_channels, nc=64, nb=nb, act_mode='BR')
+    #model = net(in_nc=n_channels, out_nc=n_channels, nc=64, nb=nb, act_mode='BR')
+    #Hard-coded options for dna model
+    model = net(in_nc=1, out_nc=1, nc=64, nb=17, act_mode='R')
     model.load_state_dict(torch.load(model_path), strict=True)
     model.eval()
     for k, v in model.named_parameters():
@@ -151,7 +155,8 @@ def main():
             np.random.seed(seed=0)  # for reproducibility
             img_L += np.random.normal(0, noise_level_img/255., img_L.shape)
 
-        util.imshow(util.single2uint(img_L), title='Noisy image with noise level {}'.format(noise_level_img)) if show_img else None
+        #util.imshow(util.single2uint(img_L), title='Noisy image with noise level {}'.format(noise_level_img)) if show_img else None
+        util.imshow(img_L, title='Noisy image with {}% noise'.format(noise_percent)) if show_img else None
 
         img_L = util.single2tensor4(img_L)
         img_L = img_L.to(device)
@@ -185,7 +190,7 @@ def main():
             test_results['psnr'].append(psnr)
             test_results['ssim'].append(ssim)
             logger.info('{:s} - PSNR: {:.2f} dB; SSIM: {:.4f}.'.format(img_name+ext, psnr, ssim))
-            util.imshow(np.concatenate([img_E, img_H], axis=1), title='Recovered / Ground-truth') if show_img else None
+            util.imshow(np.concatenate([util.uint2single(img_E), util.uint2single(img_H)], axis=1), title='Recovered / Ground-truth') if show_img else None
 
         # ------------------------------------
         # save results

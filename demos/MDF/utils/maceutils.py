@@ -54,8 +54,12 @@ def mace(LR,numagents,c,args):
     # Generate initial guess as starting point for algorithm, write to an image,
     # and use it to initialize X and W.
 
-    init = cv2.resize(LR,None, fx = args.SRval, fy = args.SRval, interpolation = cv2.INTER_CUBIC)
-
+    init = cv2.resize(LR, None, fx = args.SRval, fy = args.SRval, interpolation = cv2.INTER_CUBIC)
+    # For experiment using test data as initial input.
+    # TODO: scale this image so that the values are from 0 to 1, not 0 to 255.
+    #init = cv2.imread('images/dnatest.png', cv2.IMREAD_GRAYSCALE)
+    #cv2.imshow('init', init*255)
+    #cv2.waitKey(0)
     mdim,ndim = init.shape
     cv2.imwrite('images/results/init.png', init*255)
     init = init.reshape(-1)
@@ -94,6 +98,18 @@ def L(W,X,numagents, mdim,ndim,c, LR, args):
             
         if (args.model_name == 'dncnn_25.pth'):
             denoiser = net(in_nc=1, out_nc=1, nc=64, nb=17, act_mode='R')
+
+        elif (args.model_name == 'nano.pth'):
+            denoiser = net(in_nc=1, out_nc=1, nc=64, nb=17, act_mode='R')
+
+        elif (args.model_name == 'ecoli.pth'):
+            denoiser = net(in_nc=1, out_nc=1, nc=64, nb=17, act_mode='R')
+
+        elif (args.model_name == 'pent.pth'):
+            denoiser = net(in_nc=1, out_nc=1, nc=64, nb=17, act_mode='R')
+
+        elif (args.model_name == 'dna.pth'):
+            denoiser = net(in_nc=1, out_nc=1, nc=64, nb=17, act_mode='R')
         
         else:
             denoiser = net(in_nc=1, out_nc=1, nc=64, nb=17, act_mode='BR')
@@ -108,6 +124,7 @@ def L(W,X,numagents, mdim,ndim,c, LR, args):
         else:
             imagei = xi.reshape(1,1,mdim,ndim)
         x = denoiser(imagei)
+
         if torch.cuda.is_available() == True:
             x = x.cpu().detach().numpy()
         else:

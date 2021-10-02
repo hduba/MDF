@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--model_dir', default=os.path.join('priors'), help='directory of the model')
     parser.add_argument('--prior_mode', default='MDF', help='MDF or MACE')
-    parser.add_argument('--datatype', default='nano', help="Which dataset to use. Options are pent, nano, and ecoli")
+    parser.add_argument('--datatype', default='dna', help="Which dataset to use. Options are pent, nano, dna, and ecoli")
     parser.add_argument('--SRmode', type=bool, default=False, help="Whether running in real SR mode")
     
     # Choices for forward and prior models should be entered as arrays separated by commas
@@ -82,6 +82,9 @@ if __name__ == '__main__':
 
     elif (args.prior_mode =='MDF') and (args.datatype == 'ecoli'):
         args.model_name = 'ecoli.pth'
+
+    elif (args.prior_mode == 'MDF') and (args.datatype == 'dna'):
+        args.model_name = 'dna.pth'
 
     else: 
         print('Data type is not supported')

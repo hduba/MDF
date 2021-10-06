@@ -60,8 +60,9 @@ by Kai Zhang (12/Dec./2019)
 # --------------------------------------------
 """
 
-# noise_percent =
-def main(noise_percent_img = 9.75, noise_percent_prior = 9.75):
+# noise_percent_prior: specify which prior model to use (based on what noise it was trained on)
+# noise_percent_img: how much noise to add to testing image
+def main(noise_percent_prior = 9.75, noise_percent_img = 9.75):
     # ----------------------------------------
     # Preparation
     # ----------------------------------------
@@ -192,7 +193,7 @@ def main(noise_percent_img = 9.75, noise_percent_prior = 9.75):
             test_results['psnr'].append(psnr)
             test_results['ssim'].append(ssim)
             logger.info('{:s} - PSNR: {:.2f} dB; SSIM: {:.4f}.'.format(img_name+ext, psnr, ssim))
-            util.imshow(util.uint2single(img_E), title=f'Recovered Image; Prior: {model_name}')if show_img else None
+            util.imshow(util.uint2single(img_E), title=f'Recovered {noise_percent_img}% Noise Image; Prior: {model_name}')if show_img else None
             #util.imshow(np.concatenate([util.uint2single(img_E), util.uint2single(img_H)], axis=1), title='Recovered / Ground-truth') if show_img else None
 
         # ------------------------------------

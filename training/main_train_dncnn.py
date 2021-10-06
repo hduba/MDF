@@ -134,7 +134,7 @@ def main(json_path='options/train_dncnn_dna.json'):
     # ----------------------------------------
     '''
 
-    model = define_Model(opt)
+    model = define_Model(opt) #select_model.py
 
     if opt['merge_bn'] and current_step > opt['merge_bn_startpoint']:
         logger.info('^_^ -----merging bnorm----- ^_^')

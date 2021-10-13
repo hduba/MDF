@@ -1,0 +1,6 @@
+21-10-12 17:20:35.702 : Model path: model_zoo/dna_sigma25_maxit5000.pth
+21-10-12 17:20:35.702 : Params number: 557057
+21-10-12 17:20:35.703 : model_name:dna_sigma25_maxit5000, image sigma:25
+21-10-12 17:20:35.703 : testsets/dnatrain_gt
+21-10-12 17:20:40.087 : dnatrain.png - PSNR: 28.70 dB; SSIM: 0.5805.
+21-10-12 17:21:16.174 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_sigma25_maxit5000 - PSNR: 28.70 dB; SSIM: 0.5805

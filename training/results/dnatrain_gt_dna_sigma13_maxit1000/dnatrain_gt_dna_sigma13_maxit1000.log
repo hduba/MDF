@@ -1,0 +1,24 @@
+21-10-11 17:10:10.079 : Model path: model_zoo/dna_sigma13_maxit1000.pth
+21-10-11 17:10:10.079 : Params number: 557057
+21-10-11 17:10:10.079 : model_name:dna_sigma13_maxit1000, image sigma:25
+21-10-11 17:10:10.080 : testsets/dnatrain_gt
+21-10-11 17:10:13.907 : dnatrain.png - PSNR: 28.59 dB; SSIM: 0.5820.
+21-10-11 17:10:28.192 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_sigma13_maxit1000 - PSNR: 28.59 dB; SSIM: 0.5820
+21-10-11 17:11:10.995 : Model path: model_zoo/dna_sigma13_maxit1000.pth
+21-10-11 17:11:10.996 : Params number: 557057
+21-10-11 17:11:10.996 : model_name:dna_sigma13_maxit1000, image sigma:13
+21-10-11 17:11:10.996 : testsets/dnatrain_gt
+21-10-11 17:11:15.175 : dnatrain.png - PSNR: 28.87 dB; SSIM: 0.5983.
+21-10-11 17:11:23.203 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_sigma13_maxit1000 - PSNR: 28.87 dB; SSIM: 0.5983
+21-10-11 17:12:20.058 : Model path: model_zoo/dna_sigma13_maxit1000.pth
+21-10-11 17:12:20.059 : Params number: 557057
+21-10-11 17:12:20.059 : model_name:dna_sigma13_maxit1000, image sigma:5
+21-10-11 17:12:20.059 : testsets/dnatrain_gt
+21-10-11 17:12:25.067 : dnatrain.png - PSNR: 28.77 dB; SSIM: 0.5881.
+21-10-11 17:12:32.792 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_sigma13_maxit1000 - PSNR: 28.77 dB; SSIM: 0.5881
+21-10-13 13:46:08.795 : Model path: model_zoo/dna_sigma13_maxit1000.pth
+21-10-13 13:46:08.796 : Params number: 557057
+21-10-13 13:46:08.796 : model_name:dna_sigma13_maxit1000, image sigma:5
+21-10-13 13:46:08.796 : testsets/dnatrain_gt
+21-10-13 13:46:13.169 : dnatrain.png - PSNR: 28.77 dB; SSIM: 0.5881.
+21-10-13 13:46:13.722 : Average PSNR/SSIM(RGB) - dnatrain_gt_dna_sigma13_maxit1000 - PSNR: 28.77 dB; SSIM: 0.5881

@@ -62,22 +62,24 @@ by Kai Zhang (12/Dec./2019)
 
 # noise_percent_prior: specify which prior model to use (based on what noise it was trained on)
 # noise_percent_img: how much noise to add to testing image
-def main(noise_percent_prior = 9.75, noise_percent_img = 9.75):
+def main(noise_percent_prior = 9.75, noise_percent_img = 9.75, maxit = 1000001):
     # ----------------------------------------
     # Preparation
     # ----------------------------------------
     noise_level_img = round((noise_percent_img/100.)*255) # noise level for noisy image
+    sigma = round((noise_percent_prior / 100.) * 255)  # noise level for noisy image
     #noise_level_img = noise_level
     #noise_percent = round(noise_level_img/255. * 100)
-    model_name = f'dna_{noise_percent_prior}%Noise'
+    if maxit > 1000000:
+        model_name = f'dna_sigma{sigma}_24hr'
+    else:
+        model_name = f'dna_sigma{sigma}_maxit{maxit}'
     #model_name = '275000_G'
     #model_name = 'dncnn_25'          # 'dncnn_15' | 'dncnn_25' | 'dncnn_50' | 'dncnn_gray_blind' | 'dncnn_color_blind' | 'dncnn3'
     testset_name = 'dnatrain_gt'           # test set, 'bsd68' | 'set12'
     need_degradation = True          # default: True
     x8 = False                       #default: False, x8 to boost performance
     show_img = True                 # default: False
-
-
 
 
     task_current = 'dn'       # 'dn' for denoising | 'sr' for super-resolution
@@ -122,7 +124,7 @@ def main(noise_percent_prior = 9.75, noise_percent_img = 9.75):
     from models.network_dncnn import DnCNN as net
     #model = net(in_nc=n_channels, out_nc=n_channels, nc=64, nb=nb, act_mode='BR')
     #Hard-coded options for dna model
-    model = net(in_nc=1, out_nc=1, nc=64, nb=17, act_mode='R')
+    model = net(in_nc=1, out_nc=1, nc=64, nb=17, act_mode='BR')
     model.load_state_dict(torch.load(model_path), strict=True)
     model.eval()
     for k, v in model.named_parameters():

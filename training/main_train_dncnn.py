@@ -56,6 +56,7 @@ def main(json_path='options/train_dncnn_dna.json'):
 
     opt = option.parse(parser.parse_args().opt, is_train=True)
     util.mkdirs((path for key, path in opt['path'].items() if 'pretrained' not in key))
+    max_iters = opt['max_iters']
 
     # ----------------------------------------
     # update opt
@@ -100,7 +101,7 @@ def main(json_path='options/train_dncnn_dna.json'):
 
     '''
     # ----------------------------------------
-    # Step--2 (creat dataloader)
+    # Step--2 (create dataloader)
     # ----------------------------------------
     '''
 
@@ -149,8 +150,8 @@ def main(json_path='options/train_dncnn_dna.json'):
     # Step--4 (main training)
     # ----------------------------------------
     '''
-
-    for epoch in range(1000000):  # keep running
+    logger.info('beginning training loop')
+    for epoch in range(max_iters):  # keep running
         for i, train_data in enumerate(train_loader):
 
             current_step += 1
@@ -242,7 +243,9 @@ def main(json_path='options/train_dncnn_dna.json'):
                 logger.info('<epoch:{:3d}, iter:{:8,d}, Average PSNR : {:<.2f}dB\n'.format(epoch, current_step, avg_psnr))
 
     logger.info('Saving the final model.')
-    model.save('latest')
+    sigma = opt['sigma']
+    save_name = f'latest_sigma {sigma}_ maxit {max_iters}'
+    model.save(save_name)
     logger.info('End of training.')
 
 

@@ -84,7 +84,7 @@ if __name__ == '__main__':
         args.model_name = 'ecoli.pth'
 
     elif (args.prior_mode == 'MDF') and (args.datatype == 'dna'):
-        args.model_name = 'dna.pth'
+        args.model_name = 'dna_9.75%Noise.pth'
 
     else: 
         print('Data type is not supported')

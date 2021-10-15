@@ -1,5 +1,7 @@
 # Multi-Resolution Data Fusion (MDF)
-ReadMe last updated on June 15th, 2021
+ReadMe last updated on October 15th, 2021
+
+This is a fork of the original Multi-Resolution Data Fusion (MDF) (@emmajreid/MDF) dedicated to adding demo compatability for a DNA sample.
 
 ![](images/updatedconops.png)
 
